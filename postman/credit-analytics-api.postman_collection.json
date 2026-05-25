@@ -1,0 +1,50 @@
+{
+  "info": {
+    "_postman_id": "9c3f9b3b-0d6b-4b6e-8b6b-creditanalytics",
+    "name": "Credit Analytics API",
+    "description": "Requests for the Credit Analytics FastAPI backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /api/health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": []
+    },
+    {
+      "name": "Upload",
+      "item": []
+    },
+    {
+      "name": "Dashboard",
+      "item": []
+    },
+    {
+      "name": "Analytics",
+      "item": []
+    }
+  ]
+}
+

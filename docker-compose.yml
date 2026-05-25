@@ -1,0 +1,39 @@
+services:
+  api:
+    build:
+      context: .
+    container_name: credit-analytics-api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      APP_NAME: Credit Analytics API
+      APP_ENV: development
+      APP_DEBUG: "true"
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/credit_analytics
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    container_name: credit-analytics-db
+    environment:
+      POSTGRES_DB: credit_analytics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d credit_analytics"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
