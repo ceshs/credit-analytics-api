@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pandas
+sqlalchemy
+alembic
+pydantic
+pydantic-settings
+openpyxl
+psycopg2-binary
+
